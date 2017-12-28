@@ -11,7 +11,7 @@ def csvrow2arr(row):
     return arr
 
 
-def load_data(path = './data/resnet_cifar10', type='mean', K=3):  # type = 'mean' or 'median' or 'both'
+def load_data(path = './data/resnet_cifar100', type='mean', K=3):  # type = 'mean' or 'median' or 'both'
     train_file_path = '%s/train.csv' % path
     test_file_path  = '%s/test.csv' % path
 
@@ -98,7 +98,7 @@ def load_data(path = './data/resnet_cifar10', type='mean', K=3):  # type = 'mean
         
     return  X_train, Y_train, X_test, Y_test 
 
-X_train, Y_train, X_test, Y_test = load_data(type='kmeans', K=10)
+X_train, Y_train, X_test, Y_test = load_data(type='mean', K=10)
 
 tree = RandomForestClassifier(n_estimators=5 , max_depth=5, min_samples_split=50)
 # tree = DecisionTreeClassifier(random_state=2, max_depth=5)
